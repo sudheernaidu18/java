@@ -1,0 +1,21 @@
+===============================================================
+TASK 01: OBJECT-ORIENTED MODELING VS PARALLEL ARRAYS VALIDATION
+Student: Korasika Sudheer | Register Number: 192324313
+===============================================================
+
+--- 1. Object-Oriented Model Instantiation ---
+Slot 0 contains: TwoWheeler [regNo=TN01-AA-1111, rate=10.0/hr]
+Slot 1 contains: Car [regNo=TN02-BB-2222, rate=30.0/hr]
+Slot 2 contains: ElectricCar [regNo=TN03-CC-3333, rate=30.0/hr] (Battery: 45.0 kWh)
+
+Searching for TN02-BB-2222 in OO model...
+Found vehicle: Car [regNo=TN02-BB-2222, rate=30.0/hr]
+
+--- 2. Parallel Arrays Model Representation ---
+Index 0 -> RegNo: TN01-AA-1111, Type: TwoWheeler, Rate: Rs.10.0, Battery: 0.0 kWh
+Index 1 -> RegNo: TN02-BB-2222, Type: Car, Rate: Rs.30.0, Battery: 0.0 kWh
+Index 2 -> RegNo: TN03-CC-3333, Type: ElectricCar, Rate: Rs.30.0, Battery: 45.0 kWh
+
+--- Evaluation Summary ---
+OO Model maintains encapsulated state, strong typing, and extensible subclasses.
+Parallel arrays suffer from index-misalignment risks and rigid signature constraints.
