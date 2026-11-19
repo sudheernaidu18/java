@@ -1,0 +1,18 @@
+===============================================================
+TASK 04: CLASSES, OBJECTS & CONSTRUCTORS VALIDATION
+Student: Korasika Sudheer | Register Number: 192324313
+===============================================================
+
+--- 1. Instantiation via Constructor Chaining ---
+Original Ticket Created: Ticket[ID=TKT-1001, RegNo=TN01AB1111, Slot=(F0, S1), Entry=1795072355457, Active=true]
+
+--- 2. Instantiation via Copy Constructor (Duplicate Ticket) ---
+Duplicate Ticket Created: Ticket[ID=TKT-1001-DUP, RegNo=TN01AB1111, Slot=(F0, S1), Entry=1795072355457, Active=true]
+
+After deactivating original ticket:
+Original Ticket Active:  false
+Duplicate Ticket Active: true
+Verdict: Copy constructor produced independent snapshot preventing state corruption.
+
+--- 3. Defensive Invariant Verification ---
+Caught Expected Invariant Violation: Ticket ID cannot be empty
