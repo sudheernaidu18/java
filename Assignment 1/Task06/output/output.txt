@@ -1,0 +1,13 @@
+===============================================================
+TASK 06: INHERITANCE HIERARCHY & CONSTRUCTOR TRACE VALIDATION
+Student: Korasika Sudheer | Register Number: 192324313
+===============================================================
+
+--- Tracing ElectricCar Constructor Execution Chain ---
+  [Step 1] Vehicle constructor executed for: TN03C3
+  [Step 2] Car constructor executed.
+  [Step 3] ElectricCar constructor executed.
+Successfully created: ElectricCar with plate TN03C3
+
+--- Testing Composition Alternative ---
+Composite vehicle type: HeavyTruck, 120 mins fee: Rs. 110.0
