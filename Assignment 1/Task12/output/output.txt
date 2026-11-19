@@ -1,0 +1,28 @@
+===============================================================
+TASK 12: DAY-4 DESIGN CHALLENGE - ADAPTIVE SYSTEM VALIDATION
+Student: Korasika Sudheer | Register Number: 192324313
+===============================================================
+
+--- 1. Testing E-Bike (Flat Fee Rule) ---
+E-Bike 20 mins fee:  Rs. 20.0 (Expected: Rs. 20.0)
+E-Bike 300 mins fee: Rs. 20.0 (Expected: Rs. 20.0)
+
+--- 2. Testing Delivery Van (Peak vs Off-Peak Dynamic Pricing) ---
+Van parked at 11:00 AM (Peak) for 2 hrs:    Rs. 120.0 (Expected: Rs. 120.0)
+Van parked at 07:30 PM (Off-Peak) for 2 hrs:Rs. 60.0 (Expected: Rs. 60.0)
+
+--- 3. Testing Visitor One-Day Pass (Capped at Rs. 150) ---
+Standard 8-hour Car Fee: Rs. 240.0
+With Visitor One-Day Pass (Capped at Rs. 150): Rs. 150.0 (Expected: Rs. 150.0)
+
+--- 4. Testing 5-Floor Extended Facility Layout ---
+Total Facility Floors:   5
+Total Facility Capacity: 300 slots.
+  Floor 0 capacity: 20 slots
+  Floor 1 capacity: 40 slots
+  Floor 2 capacity: 60 slots
+  Floor 3 capacity: 80 slots
+  Floor 4 capacity: 100 slots
+Parked E-Bike at: [0, 0]
+
+>>> DAY-4 DESIGN CHALLENGE VALIDATION: ALL TESTS PASSED SUCCESSFULLY! <<<
