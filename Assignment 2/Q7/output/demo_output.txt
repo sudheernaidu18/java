@@ -1,0 +1,18 @@
+===============================================================
+Q7: REDESIGNED MULTI-LEVEL EMERGENCY TRIAGE SYSTEM DEMO
+Student: Korasika Sudheer | Register Number: 192324313
+===============================================================
+
+--- 1. Enqueueing Heterogeneous Patient Stream (O(1)) ---
+Total Patients in Triage: 6
+
+--- 2. Simulating Time Passage (60 mins) & Applying Aging ---
+Promoted Patients Count: 4
+
+--- 3. Serving Patients in Redesigned Order (O(1)) ---
+  Doctor Call 1: Meena(P02, S1)
+  Doctor Call 2: Kumar(P05, S1)
+  Doctor Call 3: Lata(P06, S1)
+  Doctor Call 4: Ravi(P01, S2)
+  Doctor Call 5: John(P03, S2)
+  Doctor Call 6: Asha(P04, S4)

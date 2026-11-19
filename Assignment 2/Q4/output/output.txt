@@ -1,0 +1,48 @@
+========================================================================
+Q4: HOSPITAL PHARMACY MAP BENCHMARK (100k LOOKUPS & DUAL REPORTS)
+Student: Korasika Sudheer | Register Number: 192324313 | Java: 25.0.1
+========================================================================
+
+========================================================================
+PHARMACY INVENTORY BENCHMARK FOR N = 1,000 MEDICINES
+========================================================================
+Metric             | HashMap          | TreeMap          | LinkedHashMap   
+------------------------------------------------------------------------
+100,000 Lookups    |         3.541 ms |         8.464 ms |         2.499 ms
+Code-Order Report  |         0.869 ms |         0.469 ms |         0.811 ms
+Insertion Report   |   Needs 2nd List |   Needs 2nd List |         0.018 ms
+Verification: Code-Order Report matches sorted keys? true
+
+========================================================================
+PHARMACY INVENTORY BENCHMARK FOR N = 10,000 MEDICINES
+========================================================================
+Metric             | HashMap          | TreeMap          | LinkedHashMap   
+------------------------------------------------------------------------
+100,000 Lookups    |         2.877 ms |        15.762 ms |         6.081 ms
+Code-Order Report  |         4.073 ms |         0.581 ms |         2.931 ms
+Insertion Report   |   Needs 2nd List |   Needs 2nd List |         0.161 ms
+Verification: Code-Order Report matches sorted keys? true
+
+========================================================================
+PHARMACY INVENTORY BENCHMARK FOR N = 100,000 MEDICINES
+========================================================================
+Metric             | HashMap          | TreeMap          | LinkedHashMap   
+------------------------------------------------------------------------
+100,000 Lookups    |         6.869 ms |        29.576 ms |         6.106 ms
+Code-Order Report  |        25.081 ms |        10.858 ms |        28.313 ms
+Insertion Report   |   Needs 2nd List |   Needs 2nd List |         0.575 ms
+Verification: Code-Order Report matches sorted keys? true
+
+========================================================================
+ARCHITECTURAL DEPLOYMENT DECISION & SCALABILITY INQUIRY:
+1. Acceptable Lookup Response Time: Sub-microsecond (< 1.0 us per lookup).
+2. Chosen Production Map: LinkedHashMap.
+   Defense: Pharmacists query stock hundreds of times every hour.
+   LinkedHashMap provides O(1) hash lookup (~4-6 ms for 100k queries) AND
+   naturally yields the daily Insertion-Order report in O(n) time.
+   The Code-Order report runs only ONCE every evening, taking ~15 ms to sort.
+3. Why Hashtable is Obsolete:
+   - Hashtable synchronizes EVERY method, creating severe thread bottlenecks.
+   - Disallows null keys and null values.
+   - Modern code uses ConcurrentHashMap for concurrency and LinkedHashMap/HashMap otherwise.
+========================================================================

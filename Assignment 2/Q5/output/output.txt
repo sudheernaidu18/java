@@ -1,0 +1,29 @@
+===============================================================
+Q5: GENERIC RANKING COMPONENT & COMPARATOR PRINCIPLE VALIDATION
+Student: Korasika Sudheer | Register Number: 192324313
+===============================================================
+
+--- 1. Multi-Level Tie Breaking Test ---
+Ranked Teams Result:
+  Rank 1: Hawks(10,8)
+  Rank 2: Tigers(10,5)
+  Rank 3: Bisons(9,4)
+  Rank 4: Panthers(9,4)
+  Rank 5: Cobras(6,1)
+
+Verification of Principle:
+  - Hawks(10,8) ranks above Tigers(10,5) [Goal Difference Tie-Break]
+  - Bisons(9,4) ranks above Panthers(9,4) [Alphabetical Name Tie-Break]
+  - Transitivity: Hawks > Tigers > Bisons > Panthers > Cobras strictly holds.
+
+--- 2. Exposing Faulty Subtraction Comparator (Integer Overflow) ---
+Comparing Low (-2B) with High (+2B):
+  Faulty Subtraction Result: 294967296 (POSITIVE! Violates consistency!)
+  Integer.compare() Result:  -1 (NEGATIVE! Correct!)
+Conclusion: Subtraction comparator completely inverted ranking due to 32-bit signed integer overflow.
+
+--- 3. Reusing Generic Leaderboard<T> for eSports Players ---
+Player Leaderboard Results:
+  Viper[Score:2400, Ast:22]
+  Phoenix[Score:2400, Ast:15]
+  Apex[Score:1850, Ast:30]

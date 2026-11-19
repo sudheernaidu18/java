@@ -1,0 +1,56 @@
+========================================================================
+Q2: EXPERIMENTAL BENCHMARK: ARRAYLIST VS LINKEDLIST VS ARRAYDEQUE
+Student: Korasika Sudheer | Register Number: 192324313 | Java: 25.0.1
+========================================================================
+
+========================================================================
+PLAYLIST BENCHMARK FOR N = 1,000 SONGS
+========================================================================
+Operation (1000 ops)       | ArrayList (ms)  | LinkedList (ms) | ArrayDeque (ms)
+------------------------------------------------------------------------
+Add at End                 |           0.040 |           0.054 |           0.096
+Insert at Front            |           0.823 |           0.210 |           0.109
+Remove from Front          |           0.395 |           0.155 |           0.077
+Insert in Middle           |           0.155 |           2.423 |     N/A (Deque)
+Remove from Middle         |           0.121 |           2.160 |     N/A (Deque)
+Get k-th Element (5k lookups) |           0.235 |           5.161 |     N/A (Deque)
+Full Iteration (1000 items) |           0.202 |           0.250 |             N/A
+
+========================================================================
+PLAYLIST BENCHMARK FOR N = 10,000 SONGS
+========================================================================
+Operation (2000 ops)       | ArrayList (ms)  | LinkedList (ms) | ArrayDeque (ms)
+------------------------------------------------------------------------
+Add at End                 |           0.059 |           0.072 |           0.056
+Insert at Front            |           2.113 |           0.085 |           0.062
+Remove from Front          |           1.933 |           0.058 |           0.042
+Insert in Middle           |           1.097 |          25.594 |     N/A (Deque)
+Remove from Middle         |           1.214 |          27.516 |     N/A (Deque)
+Get k-th Element (5k lookups) |           0.111 |          36.112 |     N/A (Deque)
+Full Iteration (10000 items) |           0.185 |           0.201 |             N/A
+
+========================================================================
+PLAYLIST BENCHMARK FOR N = 100,000 SONGS
+========================================================================
+Operation (2000 ops)       | ArrayList (ms)  | LinkedList (ms) | ArrayDeque (ms)
+------------------------------------------------------------------------
+Add at End                 |           0.022 |           0.040 |           0.026
+Insert at Front            |          19.218 |           0.069 |           0.033
+Remove from Front          |          19.946 |           0.055 |           0.022
+Insert in Middle           |           9.930 |         200.277 |     N/A (Deque)
+Remove from Middle         |           9.006 |         195.205 |     N/A (Deque)
+Get k-th Element (5k lookups) |           0.213 |         266.733 |     N/A (Deque)
+Full Iteration (100000 items) |           0.776 |           0.858 |             N/A
+
+========================================================================
+ARCHITECTURAL EVALUATION & BOUNDARY DECISION:
+1. When is ArrayList a reasonable engineering choice?
+   - When operations are predominantly random access (get(k)), append at end,
+   - and full sequential iteration, benefiting from contiguous L1/L2 cache prefetching.
+2. When to STOP recommending ArrayList?
+   - When frequent insertions/removals occur at the FRONT or MIDDLE of large lists,
+   - because System.arraycopy forces O(n) element shifting per operation.
+3. Changed Condition Response (Up Next Queue):
+   - ArrayDeque is strictly superior to both LinkedList and ArrayList.
+   - It provides O(1) amortized add/remove at BOTH ends without pointer node overhead.
+========================================================================

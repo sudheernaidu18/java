@@ -1,0 +1,44 @@
+========================================================================
+Q1: EMPIRICAL BENCHMARK EXPERIMENT - STRING IMMUTABILITY UNDER LOAD
+Student: Korasika Sudheer | Register Number: 192324313 | Java: 25.0.1
+========================================================================
+
+------------------------------------------------------------------------
+WORKLOAD: Workload 1 (Trivial Scale) (1 tickets x 5 fields)
+------------------------------------------------------------------------
+Approach        | Exec Time (ms)  | Est Objects Created | Memory Delta (KB) 
+------------------------------------------------------------------------
+String (+)      |           0.027 |                 10 |               0.00
+StringBuilder   |           0.077 |                  1 |               0.00
+StringBuffer    |           0.037 |                  1 |               0.00
+>>> Observed Result: StringBuilder is 0.3x faster than String (+)
+
+------------------------------------------------------------------------
+WORKLOAD: Workload 2 (Heavy Load: 10k x 50) (10000 tickets x 50 fields)
+------------------------------------------------------------------------
+Approach        | Exec Time (ms)  | Est Objects Created | Memory Delta (KB) 
+------------------------------------------------------------------------
+String (+)      |          30.332 |            1000000 |              58.70
+StringBuilder   |          14.881 |              10000 |               0.00
+StringBuffer    |          16.870 |              10000 |               0.05
+>>> Observed Result: StringBuilder is 2.0x faster than String (+)
+
+------------------------------------------------------------------------
+WORKLOAD: Workload 3 (High Ticket Volume: 50k x 20) (50000 tickets x 20 fields)
+------------------------------------------------------------------------
+Approach        | Exec Time (ms)  | Est Objects Created | Memory Delta (KB) 
+------------------------------------------------------------------------
+String (+)      |          33.211 |            2000000 |               2.01
+StringBuilder   |          16.151 |              50000 |               0.00
+StringBuffer    |          30.093 |              50000 |               0.00
+>>> Observed Result: StringBuilder is 2.1x faster than String (+)
+
+========================================================================
+MULTITHREADED BOOKING SERVER ARCHITECTURAL DECISION:
+1. Per-Ticket Generation: Recommended class is StringBuilder.
+   Defense: Each ticket is generated within a single request worker thread
+   (thread-confined). Synchronization is redundant and causes thread lock overhead.
+2. Shared Audit Log: Recommended class is StringBuffer (or ConcurrentQueue).
+   Defense: Multiple concurrent threads mutate the shared buffer simultaneously.
+   StringBuffer's synchronized methods guarantee memory visibility and atomic appends.
+========================================================================

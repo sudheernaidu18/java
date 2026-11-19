@@ -1,0 +1,33 @@
+===============================================================
+Q3: HASHCODE - EQUALS CONTRACT INVESTIGATION & VALIDATION
+Student: Korasika Sudheer | Register Number: 192324313
+===============================================================
+
+--- TEST 1: Apparent False Correctness (Same Reference) ---
+Prediction: Size = 1 (Reference identity short-circuits hash check)
+Actual Observed Size: 1
+Why it appeared to work: In HashMap.putVal(), (p.hash == hash && ((k = p.key) == key ...))
+Because (s1 == s1) evaluates to true, the entry was recognized without calling equals()!
+
+--- TEST 2: Exposing Duplicate Leak (Different Heap References) ---
+Prediction: Size = 3 (Different System.identityHashCode values route to different buckets)
+Actual Observed Size: 3
+Resulting Elements in Set: [192311002:Divya, 192311001:Arun, 192311001:Arun]
+Hashcode scanGate1: 622488023, scanGate3: 112810359 (Mismatch!)
+Why duplicates appeared: Without hashCode(), scanGate1 and scanGate3 land in different
+buckets; equals() is NEVER even evaluated between them!
+
+--- TEST 3: Mutating Key Field After Insertion (Bucket Trap) ---
+Initial set contains Kiran: true
+After mutating regNo to 192311999:
+Does set still contain mutStudent? false
+Actual Set size: 1
+Attempting remove(mutStudent): false
+Set size after failed remove: 1
+Why object is trapped: HashSet looks for Kiran in bucket index hash('192311999'),
+but Kiran was stored in bucket index hash('192311005')! The element is permanently orphaned.
+
+--- VERIFICATION: Corrected Student Class with Contract Implemented ---
+Fixed Set Expected Size: 2
+Fixed Set Actual Size:   2
+Verification Status: PASSED (100% DE-DUPLICATED)
