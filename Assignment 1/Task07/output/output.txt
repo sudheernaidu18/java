@@ -1,0 +1,14 @@
+===============================================================
+TASK 07: METHOD OVERRIDING & OBJECT CONTRACT VALIDATION
+Student: Korasika Sudheer | Register Number: 192324313
+===============================================================
+
+TwoWheeler [TN01-BK-1111] fee for 130 mins: Rs. 30.0
+Car [TN02-CR-2222] fee for 130 mins: Rs. 90.0
+
+--- Testing equals() and hashCode() Contract ---
+car1.equals(electricCarSameReg): true (Expected: true)
+car1.equals(carDifferentReg):    false (Expected: false)
+car1.hashCode() == electricCarSameReg.hashCode(): true (Expected: true)
+HashSet size after adding duplicate regNo vehicle: 1 (Expected: 1)
+Successfully prevented duplicate physical vehicle registration in system.
