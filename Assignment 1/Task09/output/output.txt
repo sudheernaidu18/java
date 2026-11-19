@@ -1,0 +1,13 @@
+===============================================================
+TASK 09: ABSTRACTION & MULTIPLE CAPABILITY VALIDATION
+Student: Korasika Sudheer | Register Number: 192324313
+===============================================================
+
+Vehicle Plate:       TN03-EV-9999
+Security Tag:        RFID-TAG-7788
+Parking Fee (90m):   Rs. 60.0
+Charging Fee (15kWh):Rs. 180.0
+Fast Charge Premium: Rs. 52.5 (Inherited from default method)
+Is 15 kWh valid?     true (Validated via static interface method)
+
+Conclusion: Abstract class enforces single-inheritance identity while interfaces enable flexible capabilities.
