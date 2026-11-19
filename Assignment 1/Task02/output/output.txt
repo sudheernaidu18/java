@@ -1,0 +1,28 @@
+===============================================================
+TASK 02: DATA REPRESENTATION & NUMERICAL PRECISION VALIDATION
+Student: Korasika Sudheer | Register Number: 192324313
+===============================================================
+
+--- 1. Jagged Array Representation (Non-Uniform Floors) ---
+Floor 0 capacity: 20 slots.
+Floor 1 capacity: 50 slots.
+Floor 2 capacity: 100 slots.
+Slot (0, 5) holds: TN01-EV-1000
+Slot (2, 99) holds: TN09-ZZ-9999
+
+--- 2. Flat 1D Array Representation with Prefix-Sum Offsets ---
+Total flat array capacity: 170 slots.
+Mapped Floor 2, Slot 99 -> Flat Index 169 holds: TN09-ZZ-9999
+
+--- 3. Fee Computation Precision Analysis ---
+Minutes    | Buggy Fee (int div) | Safe Int Ceiling | Math.ceil Fee   
+------------------------------------------------------------------
+15         | Rs. 0.00         | Rs. 30.00        | Rs. 30.00       
+60         | Rs. 30.00        | Rs. 30.00        | Rs. 30.00       
+61         | Rs. 30.00        | Rs. 60.00        | Rs. 60.00       
+75         | Rs. 30.00        | Rs. 60.00        | Rs. 60.00       
+120        | Rs. 60.00        | Rs. 60.00        | Rs. 60.00       
+121        | Rs. 60.00        | Rs. 90.00        | Rs. 90.00       
+
+Conclusion: Integer division loses up to Rs. 30 per vehicle on partial hours.
+Safe formula (minutes + 59) / 60 correctly charges every started hour.
