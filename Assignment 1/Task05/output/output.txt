@@ -1,0 +1,24 @@
+===============================================================
+TASK 05: STATIC MEMBERS & OBJECT LIFE CYCLE VALIDATION
+Student: Korasika Sudheer | Register Number: 192324313
+===============================================================
+
+--- 1. Shared Global Static Counter ---
+GLOBAL-5001
+GLOBAL-5002
+
+--- 2. Decentralized Facility Gate Counters ---
+[North Gate] Issued Ticket #NG-1001 for TN01AA1111
+[South Gate] Issued Ticket #SG-1001 for TN02BB2222
+[North Gate] Issued Ticket #NG-1002 for TN01AA3333
+[South Gate] Issued Ticket #SG-1002 for TN02BB4444
+North Gate Total Issues: 2
+South Gate Total Issues: 2
+
+--- 3. Java Pass-By-Value Semantics Verification ---
+Primitive 'duration' after method call: 60 (Unchanged - Pass-by-value confirmed)
+Ticket status before: ACTIVE
+Ticket status after:  PAID_AND_RELEASED (Heap mutated via copied pointer value)
+
+--- 4. Object Life Cycle & GC Eligibility ---
+Reference set to null. Object is now an unreachable garbage candidate for JVM G1/ZGC.
