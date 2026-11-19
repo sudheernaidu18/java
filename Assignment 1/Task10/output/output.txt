@@ -1,0 +1,15 @@
+===============================================================
+TASK 10: PACKAGES, ACCESS MODIFIERS & ENCAPSULATION
+Student: Korasika Sudheer | Register Number: 192324313
+===============================================================
+
+Parked TN01-PKG-1001 at [0, 0]
+
+--- Defensive Invariant Validation ---
+Defensive Check Passed: Caught negative duration -> Minutes cannot be negative: -15
+Defensive Check Passed: Caught blank registration -> Vehicle registration number cannot be null or blank
+
+--- Wrapper Class Autoboxing & == Pitfall Demonstration ---
+smallA (50) == smallB (50): true (Cached range [-128, 127])
+largeA (200) == largeB (200): false (Different heap references!)
+largeA.equals(largeB): true (Correct value comparison via equals)
